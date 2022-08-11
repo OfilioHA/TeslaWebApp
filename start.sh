@@ -1,0 +1,1 @@
+docker run -v /c/Users/INFO-Prog/Documents/GitHub/TeslaWebApp:/var/www/html --rm -it tesla bash

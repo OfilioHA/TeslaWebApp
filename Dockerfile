@@ -12,19 +12,17 @@ COPY --from=node /usr/local/bin/node /usr/local/bin/node
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 RUN npm install -g npm@8.17.0
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 RUN php --version
 RUN composer --version
 RUN node --version
 
-COPY . .
+#RUN composer install \
+#    --no-interaction \
+#    --prefer-source
 
-RUN composer install \
-    --no-interaction \
-    --prefer-source
-
-RUN npm install
+#RUN npm install
 
 EXPOSE 8000
 CMD ["php", "artisan", "serve"]
