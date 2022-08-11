@@ -2,7 +2,7 @@ FROM composer:latest AS composer
 FROM node:latest AS node
 FROM php:latest
 
-RUN apt-get update && apt-get install -y
+RUN apt-get update && apt-get upgrade -y
 RUN apt install git -y
 
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
